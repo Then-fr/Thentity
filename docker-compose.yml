@@ -1,0 +1,50 @@
+services:
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: thentity_test 
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./tests/docker/mysql-init:/docker-entrypoint-initdb.d
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: thentity_test
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./tests/docker/postgres-init:/docker-entrypoint-initdb.d
+
+  php74:
+    build:
+      context: ./tests/docker
+      dockerfile: Dockerfile-7.4
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+  php82:
+    build:
+      context: ./tests/docker
+      dockerfile: Dockerfile-8.2
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+  php84:
+    build:
+      context: ./tests/docker
+      dockerfile: Dockerfile-8.4
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+volumes:
+  mysql_data:
+  pg_data:

@@ -1,0 +1,6 @@
+FROM php:8.4-cli
+RUN apt-get update && apt-get install -y libpq-dev default-mysql-client git unzip && docker-php-ext-install pdo pdo_mysql pdo_pgsql
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+#RUN pecl install xdebug && docker-php-ext-enable xdebug
+COPY php.ini /usr/local/etc/php/conf.d/custom.ini
+WORKDIR /app

@@ -15,9 +15,9 @@ class EntityConfig
         if (!$pdo) {
             try {
                 $pdo = new \PDO(
-                    'mysql:host=127.0.0.1;dbname=thentity;charset=utf8mb4',
+                    'mysql:host=mysql;port=3306;dbname=thentity_test;charset=utf8mb4',
                     'root',
-                    'test',
+                    'root',
                     [
                         \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
                         \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC

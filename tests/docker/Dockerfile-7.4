@@ -1,0 +1,5 @@
+FROM php:7.4-cli
+RUN apt-get update && apt-get install -y libpq-dev default-mysql-client git unzip && docker-php-ext-install pdo pdo_mysql pdo_pgsql
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+COPY php.ini /usr/local/etc/php/conf.d/custom.ini
+WORKDIR /app
