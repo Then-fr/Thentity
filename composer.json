@@ -1,0 +1,31 @@
+{
+    "name": "then/thentity",
+    "description": "PHP active record ?",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Then",
+            "email": "code@then.fr"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Thentity\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Thentity\\Tests\\": "tests/",
+            "Entity\\ThentityAbstract\\": "src/Thentity/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    },
+    "bin": ["bin/generate"]
+}
