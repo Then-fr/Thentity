@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 // vendor/bin/phpunit --bootstrap tests/bootstrap.php tests/Entity
+require_once __DIR__.'/../src/ThentityLogger.php';
 require_once __DIR__.'/../src/ThentityAbstract.php';
 require_once __DIR__.'/../src/ThentityCondition.php';
 require_once __DIR__.'/../src/ThentityDB.php'; 
