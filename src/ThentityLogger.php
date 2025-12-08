@@ -1,6 +1,6 @@
 <?php
 
-namespace Thentity;
+namespace Thentity; 
 
 class ThentityLogger
 {
