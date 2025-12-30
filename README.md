@@ -11,7 +11,8 @@ Ce projet contient la configuration Docker pour tester Thentity avec différente
 - `make up` : démarre MySQL et PostgreSQL
 - `make down` : arrête tous les services
 - `make build` : build les containers PHP
-- `make test-74` : lance PHPUnit sur PHP 7.4
+- `make test-82` : lance PHPUnit sur PHP 8.2
+- `make test-84` : lance PHPUnit sur PHP 8.4
 - `make test-all` : lance PHPUnit sur toutes les versions
 
 docker exec -i thentity-mysql-1 mysql -uroot -proot thentity_test < tests/docker/mysql-init/test_sql.sql
