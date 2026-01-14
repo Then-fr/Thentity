@@ -1,3 +1,6 @@
+# install with composer
+composer require then/thentity 
+
 # Thentity - Tests Docker Environment
 Ce projet contient la configuration Docker pour tester Thentity avec différentes versions de PHP et bases de données.
 

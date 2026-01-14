@@ -201,20 +201,21 @@ class ThentityCondition
                 if (in_array($operation['op'], $op_ignore_val)) {
                     $relation->addCondition($full_field_name . ' ' . $operation['op']);
                 }
-                // requete IN, BETWEEN...
-                else if (count($operation['placeholders_values']) > 1) {
-                    //$placeholders = implode(',',$operation['placeholder']);
-                    if (substr($operation['op'], -2) === 'IN') {
-                        $relation->addCondition($full_field_name . ' ' . $operation['op'] . '(' . implode(',', array_keys($operation['placeholders_values'])) . ')', $operation['placeholders_values']);
-                    } elseif (substr($operation['op'], -7) === 'BETWEEN') {
+                // requete IN
+                else if (substr($operation['op'], -2) === 'IN') {
+                    $relation->addCondition($full_field_name . ' ' . $operation['op'] . '(' . implode(',', array_keys($operation['placeholders_values'])) . ')', $operation['placeholders_values']);
+                } 
+                // BETWEEN
+                elseif (substr($operation['op'], -7) === 'BETWEEN') {
                         if (count($operation['placeholders_values']) !== 2) {
                             throw new Exception('Operator BETWEEN need exactly two values, ' . count($operation['placeholders_values']) . ' values founds');
                         }
                         $plk = array_keys($operation['placeholders_values']);
                         $relation->addCondition($full_field_name . ' ' . $operation['op'] . ' ' . $plk[0] . ' AND ' . $plk[1], $operation['placeholders_values']);
-                    } else {
-                        throw new Exception('Multiple values not supported by operator ' . $operation['op']);
-                    }
+                }
+                
+                else if (count($operation['placeholders_values']) > 1) {                    
+                    throw new Exception('Multiple values not supported by operator ' . $operation['op']);                    
                 }
                 // opérateur simple < != ... 
                 else {

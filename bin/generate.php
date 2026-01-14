@@ -17,8 +17,9 @@ if (!file_exists($configPath)) {
     exit(1);
 }
 
-// Charger le fichier de config
-$config = require $configPath;
+// Charger le fichier de config;
+$config = [];
+require $configPath;
 
 // Connexion PDO
 try {
