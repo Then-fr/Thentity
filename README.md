@@ -1,6 +1,16 @@
 # install with composer
 composer require then/thentity 
 
+copy and edit 
+thentity.config.php
+
+generate class for all table
+php vendor/then/thentity/bin/generate.php configs/thentity.config.php
+
+if necessary edit connection parmeter in
+/Entity/EntityConfig.php
+
+
 # Thentity - Tests Docker Environment
 Ce projet contient la configuration Docker pour tester Thentity avec différentes versions de PHP et bases de données.
 
